@@ -19,29 +19,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class CSVService
 {
-    public function getCSVDataAsStandardClass($csvDataArray) : ArrayCollection
+
+    public function getCSVDataAsStandardClass($csvFileArray) : array
     {
-        $csvCollection = new ArrayCollection();
-        $headerRow = [];
+        $csv = array_map('str_getcsv', $csvFileArray);
 
-        for ($row=0; $row < count($csvDataArray); $row++) {
-            $propertyName = $this->getPropertyNameFromName($csvDataArray[$row]);
-            $headerRow[] = $propertyName;
-
-            if ($row == 0) {
-                $newStdMaster = new \StdClass();
-                $newStdMaster->$propertyName = null;
-            }
-
-            if ($row > 0) {
-                $std = clone $newStdMaster;
-
-            }
-
-            //echo $data[$c] . "<br />\n";
-        }
-
-        $row++;
+        array_walk($csv, function(&$a) use ($csv) {
+            $a = array_combine($csv[0], $a);
+        });
+        array_shift($csv);
+        return $csv;
     }
 
     private function getPropertyNameFromName($name)
