@@ -20,6 +20,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 class CSVService
 {
 
+    public function getCSVAsArrayFromFileName(string $fullFileName) : array
+    {
+        return $this->getCSVDataAsStandardClass(file($fullFileName));
+    }
+
     public function getCSVDataAsStandardClass($csvFileArray) : array
     {
         $csv = array_map('str_getcsv', $csvFileArray);
