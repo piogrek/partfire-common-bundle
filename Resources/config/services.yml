@@ -27,3 +27,6 @@ services:
         arguments: ['@partfire_common.repo']
         tags:
               - { name: kernel.event_listener, event: fos_user.registration.completed, method: onCreateUserSetIPAddress }
+
+    partfire_common.csv_service:
+        class: PartFire\CommonBundle\Services\CSV\CSVService
