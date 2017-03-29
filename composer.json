@@ -22,7 +22,8 @@
     "require": {
         "php": "^7.0",
         "symfony/framework-bundle": "^2.7 || ^3.0",
-        "gedmo/doctrine-extensions": "^2.4"
+        "gedmo/doctrine-extensions": "^2.4",
+        "partfire/slack-bundle": "1.0.x-dev"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0",
@@ -52,5 +53,12 @@
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:PartFire/SlackBundle"
+        }
+    ]
+
 }
