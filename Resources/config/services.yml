@@ -1,6 +1,3 @@
-imports:
-    - { resource: "@PartFireSlackBundle/Resources/config/services.yml" }
-
 services:
     partfire_common.repo:
         class: PartFire\CommonBundle\Entity\Repository\RepositoryFactory
