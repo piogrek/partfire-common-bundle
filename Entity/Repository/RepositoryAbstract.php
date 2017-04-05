@@ -15,6 +15,7 @@
 namespace PartFire\CommonBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use PartFire\CommonBundle\Services\Methods\Strings;
 
 class RepositoryAbstract extends EntityRepository implements Repository
 {
@@ -32,6 +33,18 @@ class RepositoryAbstract extends EntityRepository implements Repository
         );
         
         return $pagination;
+    }
+
+    public function getAllByArray()
+    {
+        $queryString    = 'SELECT entities FROM ' . $this->getBundleName() .':' .$this->getEntityName().' entities WHERE entities.enabled = :enabled AND entities.deleted = :deleted';
+        $query          = $this->getEntityManager()->createQuery($queryString);
+        $query->setParameters([
+            'enabled'       => true,
+            'deleted'       => false,
+        ]);
+        $result         = $query->getArrayResult();
+        return $result;
     }
     
     public function getDropDownSelectBox()
@@ -57,6 +70,15 @@ class RepositoryAbstract extends EntityRepository implements Repository
         $query          = $this->getEntityManager()->createQuery($queryString);
         $count          = $query->getSingleScalarResult();
         return $count;
+    }
+
+    public function getEntityName()
+    {
+        $className = get_called_class();
+        $exploded = explode('\\', $className);
+        $last = array_pop($exploded);
+        $name = Strings::removeThisOffTheEndOfString($last, "Repository");
+        return $name;
     }
     
     public function getCountWheres($wheres)
