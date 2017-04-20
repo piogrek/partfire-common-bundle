@@ -69,41 +69,6 @@ var PartFireApi = React.createClass({
     render : function () {
         return (
             <div>
-                { this.showHeader() }
-                { this.showFeedBack() }
-                { this.showSections() }
-                <Referencing
-                    postUrl={ this.state.assignmentData.urls.newReference }
-                    references={ this.getReferences() }
-                    handleStandardGet={ this.handleStandardGet }
-                    handleStandardPost={ this.handleStandardPost }
-                />
-                <Appendices
-                    appendices={ this.getAppendices() }
-                    handleStandardGet={ this.handleStandardGet }
-                    postUrl={ this.state.appendixPostUrl }
-                    handleStandardPost={ this.handleStandardPost }
-                />
-                <Feedback
-                    academics={ this.state.academicsData }
-                    handleStandardGet={ this.handleStandardGet }
-                    academicFeedbackClicked={ this.academicFeedbackClicked }
-                    setAcademicFeedbackAssignment={ this.setAcademicFeedbackAssignment }
-                    isAcademic={this.state.isAcademic}
-                />
-                <AddNewSectionModal
-                    members={ this.state.studentsData.members }
-                    handleStandardPost={ this.handleStandardPost }
-                    postUrl={ this.state.postNewSectionUrl }
-                />
-                <Comments
-                    postUrl={ this.state.commentsPostUrl }
-                    handleStandardPost={ this.handleStandardPost }
-                    comments={ this.getSectionComments() }
-                    closeCommentsClicked={ this.closeCommentsClicked }
-                />
-                <DeleteSectionModal getUrl={ this.state.deleteSectionUrl } handleStandardGet={ this.handleStandardGet }/>
-                <AssignSectionToEditModal handleStandardGet={ this.handleStandardGet } allowLeaderToEditUrl={ this.state.allowLeaderToEditUrl } anyoneToEditUrl={ this.state.anyoneToEditUrl } />
 
             </div>
         )
