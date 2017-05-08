@@ -23,7 +23,8 @@
         "php": "^7.0",
         "symfony/framework-bundle": "^2.7 || ^3.0",
         "gedmo/doctrine-extensions": "^2.4",
-        "partfire/slack-bundle": "1.0.x-dev"
+        "partfire/slack-bundle": "1.0.x-dev",
+        "jms/serializer": "^1.5"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0",
