@@ -46,6 +46,18 @@ class RepositoryAbstract extends EntityRepository implements Repository
         $result         = $query->getArrayResult();
         return $result;
     }
+
+    public function getAllEnabled()
+    {
+        $queryString    = 'SELECT entities FROM ' . $this->getBundleName() .':' .$this->getEntityName().' entities WHERE entities.enabled = :enabled AND entities.deleted = :deleted';
+        $query          = $this->getEntityManager()->createQuery($queryString);
+        $query->setParameters([
+            'enabled'       => true,
+            'deleted'       => false,
+        ]);
+        $result         = $query->getResult();
+        return $result;
+    }
     
     public function getDropDownSelectBox()
     {
@@ -168,6 +180,28 @@ class RepositoryAbstract extends EntityRepository implements Repository
     public function save()
     {
         $this->_em->flush();
+    }
+
+    /*
+     * Returns an OR string
+     * Example  map.idName = 'KFNMAXKP' OR map.idName = 'KFPED'
+     *
+     */
+
+    public function getOrs(string $itemToEqual, array $someArray)
+    {
+        $return = "";
+        $total = count($someArray);
+        for($i=0; $i < $total; $i++) {
+            $return .= $itemToEqual . " = '" . $someArray[$i] . "'";
+            if ($i != ($total - 1)) {
+                $return .= " OR ";
+            } else {
+                $return .= ")";
+            }
+        }
+
+        return $return;
     }
     
 }
