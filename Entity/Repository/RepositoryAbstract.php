@@ -51,7 +51,7 @@ class RepositoryAbstract extends EntityRepository implements Repository
     {
         $returnArray = array();
         foreach ($this->findAll(array(), array('name'=>'asc')) as $make) {
-            $returnArray[$make->getId()] = $make->getName();
+            $returnArray[$make->getHash()] = $make->getName();
         };
         return $returnArray;
     }

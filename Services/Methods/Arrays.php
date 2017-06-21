@@ -21,4 +21,46 @@ class Arrays
     {
 
     }
+
+    public static function getSortedArrayWithObjects(array $arrayData, string $prop) : array
+    {
+        $data = array();
+
+        foreach($arrayData as $item) {
+            $methodName = 'get' . ucfirst($prop);
+
+            $data[$item->$methodName()][] = $item;
+        }
+
+        //var_dump($data);
+        krsort($data);
+
+        $returnData = array();
+        foreach ($data as $key => $item) {
+            $returnData = array_merge($returnData, $item);
+        }
+
+        return $returnData;
+    }
+
+    public static function getUniquePropertiesList(array $arrayData, string $prop) : array
+    {
+        $data = array();
+        $returnData = array();
+
+        foreach($arrayData as $item) {
+            $methodName = 'get' . ucfirst($prop);
+            $propResult = $item->$methodName();
+
+
+            if (!in_array($propResult, $returnData)) {
+                $returnData[] = $propResult;
+            }
+
+        }
+        rsort($returnData);
+        return $returnData;
+    }
+
+
 }
