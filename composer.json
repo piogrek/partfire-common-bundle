@@ -24,7 +24,8 @@
         "symfony/framework-bundle": "^2.7 || ^3.0",
         "gedmo/doctrine-extensions": "^2.4",
         "partfire/slack-bundle": "1.0.x-dev",
-        "jms/serializer": "^1.5"
+        "jms/serializer": "^1.5",
+        "deployer/deployer": "^5.0"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0",
