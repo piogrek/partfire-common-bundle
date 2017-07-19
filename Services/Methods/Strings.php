@@ -63,4 +63,9 @@ class Strings
         }
         return $string;
     }
+
+    public function removeSpaces(string $string) : string
+    {
+        return preg_replace('/\s+/', '', $string);
+    }
 }
