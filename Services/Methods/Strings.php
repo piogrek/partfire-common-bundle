@@ -68,4 +68,9 @@ class Strings
     {
         return preg_replace('/\s+/', '', $string);
     }
+
+    public static function getJustAzNumbers(string $string) : string
+    {
+        return preg_replace("/[^a-zA-Z0-9]+/", "", $string);
+    }
 }
