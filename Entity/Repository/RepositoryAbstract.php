@@ -203,5 +203,11 @@ class RepositoryAbstract extends EntityRepository implements Repository
 
         return $return;
     }
+
+    public function removeAll()
+    {
+        $query = $this->_em->createQuery('DELETE ' . $this->getBundleName() .':' .$this->getEntityName().' c');
+        $query->execute();
+    }
     
 }

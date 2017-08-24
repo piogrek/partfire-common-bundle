@@ -69,8 +69,21 @@ class Strings
         return preg_replace('/\s+/', '', $string);
     }
 
+    public static function removeMultipleSpaces(string $string) : string
+    {
+        return preg_replace('/\s+/', ' ', $string);
+    }
+
     public static function getJustAzNumbers(string $string) : string
     {
         return preg_replace("/[^a-zA-Z0-9]+/", "", $string);
+    }
+
+    public static function removeGermanChars(string $string) : string
+    {
+        //$inputString = "Á,Â,Ã,Ä,Å,Æ,Ç,È,É,Ê,Ë,Ì,Í,Î,Ï,Ð,Ñ,Ò,Ó,Ô,Õ,Ö,×,Ù,Ú,Û,Ü,Ý,Þ,ß,à,á,â,ã,ä,å,æ,ç,è,é,ê,ë,ì,í,î,ï,ð,ñ,ò,ó,ô,õ,ö,ù,ú,û,ü,ý,þ,ÿ";
+        $inputString = utf8_encode($string);
+        //$extraCharsToRemove = array("\"","'","`","^","~");
+        return iconv("utf-8", 'ASCII//TRANSLIT', $inputString);
     }
 }
