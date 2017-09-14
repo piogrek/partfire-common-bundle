@@ -30,3 +30,13 @@ services:
 
     partfire_common.csv_service:
         class: PartFire\CommonBundle\Services\CSV\CSVService
+
+
+    partfire_common.html_view_data_service:
+        class: PartFire\CommonBundle\Services\DataRenders\HtmlTable
+
+    partfire_common.csv_view_data_service:
+        class: PartFire\CommonBundle\Services\DataRenders\Csv
+
+
+

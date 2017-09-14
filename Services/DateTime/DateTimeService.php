@@ -29,6 +29,17 @@ class DateTimeService
         return $dateTime->format('D jS \of F Y G:i:s');
     }
 
+    public function getNiceTimeFileName(\DateTime $dateTime)
+    {
+        return $dateTime->format('D-j-F-Y--G-i-s');
+    }
+
+    public function getNiceTimeFileNameNow()
+    {
+        return $this->getNiceTimeFileName($this->getTimeNow());
+    }
+
+
     public function getNiceDateNow()
     {
         return $this->getNiceDate($this->getTimeNow());
