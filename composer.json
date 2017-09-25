@@ -50,6 +50,7 @@
             "PartFire\\CommonBundle\\spec\\": "spec/"
         }
     },
+
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
@@ -62,5 +63,4 @@
             "url": "git@github.com:PartFire/SlackBundle"
         }
     ]
-
 }
