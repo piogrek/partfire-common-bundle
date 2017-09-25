@@ -23,7 +23,7 @@
         "php": "^7.0",
         "symfony/framework-bundle": "^2.7 || ^3.0",
         "gedmo/doctrine-extensions": "^2.4",
-        "partfire/slack-bundle": "^1.0.x",
+        "partfire/slack-bundle": "^1.0",
         "jms/serializer": "^1.5",
         "deployer/deployer": "^5.0"
     },
