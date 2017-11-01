@@ -23,7 +23,7 @@
         "php": "^7.0",
         "symfony/framework-bundle": "^2.7 || ^3.0",
         "gedmo/doctrine-extensions": "^2.4",
-        "partfire/slack-bundle": "1.0.x-dev",
+        "partfire/slack-bundle": "^1.0",
         "jms/serializer": "^1.5",
         "deployer/deployer": "^5.0"
     },
@@ -50,11 +50,11 @@
             "PartFire\\CommonBundle\\spec\\": "spec/"
         }
     },
-    "minimum-stability": "dev",
+
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "v1.0.1"
         }
     },
     "repositories": [
@@ -63,5 +63,4 @@
             "url": "git@github.com:PartFire/SlackBundle"
         }
     ]
-
 }
