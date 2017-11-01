@@ -40,6 +40,7 @@ class Csv implements DataRenderInterface
         $counter = 0;
         $length = count($data);
         foreach($data as $row) {
+            $length = count($row);
             foreach($row as $name => $value) {
                 $csv .= self::VALUE_ENCLOSURE . $value . self::VALUE_ENCLOSURE;
                 $counter++;
